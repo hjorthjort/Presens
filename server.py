@@ -1,4 +1,3 @@
-from flask import Flask, jsonify
 import os
 import sys
 import django
@@ -17,12 +16,6 @@ os.chdir('static')
 
 ## Endpoints
 
-lists = [
-        {
-            'id': 1,
-            'title': u'Gone With The Wind'
-            }
-        ]
 
 httpd = Server(("", PORT), Handler)
 try:
