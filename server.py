@@ -17,9 +17,13 @@ lists = [
     }
 ]
 
-@app.route('/presens/lists', methods=['GET'])
+@app.route('/api/lists', methods=['GET'])
 def get_lists():
     return jsonify({'lists': lists})
+
+@app.route('/', methods=['GET'])
+def index():
+
 
 if __name__ == '__main__':
     app.run(debug=True)
