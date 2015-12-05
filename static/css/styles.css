@@ -1,0 +1,12 @@
+body{
+	background-color: black;
+}
+.main-title h1{
+	text-align: center;
+	font-size: 8vw;
+	color: white;
+}
+.main-title p{
+	text-align: center;
+	font-size: 3vw;
+}
