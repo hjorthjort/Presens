@@ -1,29 +1,25 @@
-import os
-import sys
-import django
+from flask import Flask, jsonify
 
-try:
-  from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
-  from SocketServer import TCPServer as Server
-except ImportError:
-  from http.server import SimpleHTTPRequestHandler as Handler
-  from http.server import HTTPServer as Server
+app = Flask(__name__)
 
-# Read port selected by the cloud for our application
-PORT = int(os.getenv('PORT', 8000))
-# Change current directory to avoid exposure of control files
-os.chdir('static')
+lists = [
+    {
+        'id': 1,
+        'title': u'Buy groceries',
+        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
+        'done': False
+    },
+    {
+        'id': 2,
+        'title': u'Learn Python',
+        'description': u'Need to find a good Python tutorial on the web',
+        'done': False
+    }
+]
 
-## Endpoints
+@app.route('/presens/lists', methods=['GET'])
+def get_lists():
+    return jsonify({'lists': lists})
 
-
-httpd = Server(("", PORT), Handler)
-try:
-  print("Start serving at port %i" % PORT)
-  print("Python version: " + sys.version)
-  print("Django version: " + django.get_version())
-  httpd.serve_forever()
-except KeyboardInterrupt:
-  pass
-httpd.server_close()
-
+if __name__ == '__main__':
+    app.run(debug=True)
