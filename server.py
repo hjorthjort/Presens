@@ -1,4 +1,5 @@
 import os
+import django
 try:
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
@@ -14,6 +15,7 @@ os.chdir('static')
 httpd = Server(("", PORT), Handler)
 try:
   print("Start serving at port %i" % PORT)
+  print("Django version: " + django.get_version())
   httpd.serve_forever()
 except KeyboardInterrupt:
   pass
