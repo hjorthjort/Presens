@@ -1,3 +1,4 @@
+from flask import Flask, jsonify
 import os
 import sys
 import django
@@ -13,6 +14,15 @@ except ImportError:
 PORT = int(os.getenv('PORT', 8000))
 # Change current directory to avoid exposure of control files
 os.chdir('static')
+
+## Endpoints
+
+lists = [
+        {
+            'id': 1,
+            'title': u'Gone With The Wind'
+            }
+        ]
 
 httpd = Server(("", PORT), Handler)
 try:
