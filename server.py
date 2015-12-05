@@ -1,8 +1,12 @@
 import os
-from flask import Flask
+from flask import Flask, send_from_directory
 import api
 
 app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def index():
+    return send_from_directory('.','index.html')
 
 @app.route('/api/lists', methods=['GET'])
 def get_lists():
@@ -10,7 +14,7 @@ def get_lists():
 
 
 @app.route('/api', methods=['GET'])
-def index():
+def startpage():
     return "Hi!"
 
 
