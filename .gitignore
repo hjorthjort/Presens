@@ -1,6 +1,9 @@
 # Project specific
 api-keys/*
 
+# PyCharm
+.idea/
+
 ############
 ## PYTHON ##
 ############
