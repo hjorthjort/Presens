@@ -1,75 +1,152 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="recApp">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Presens - Real-World Recommendations</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presens</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <!-- Bootstrap -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-     <link href="static/css/list.css" rel="stylesheet">
-     <link href="static/css/styles.css" rel="stylesheet">
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome/css/font-awesome.css">
 
 
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js" type="text/javascript"></script>
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/animate.min.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="static/js/modernizr.custom.js"></script>
 
-
-     <script src="static/js/app.js" type="text/javascript"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-    	<div class="main-title">
-    		<h1>Presens</h1>
-    		<p class="muted">Real-World Recommendations</p>
-    	</div>
+</head>
+<body>
+<div id="preloader">
+  <div id="status"> <img src="img/preloader.gif" height="64" width="64" alt=""> </div>
+</div>
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.html"><i class="fa fa-flag-checkered fa-flip-horizontal"></i> Presens<strong></strong></a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home" class="page-scroll">Home</a></li>
+        <li><a href="#services-section" class="page-scroll">Services</a></li>
+        <li><a href="#contact-section" class="page-scroll">Try it out</a></li>
+      </ul>
     </div>
-    <div class="container" ng-controller="RecommendCtrl">
-        <div class="well well-sm" >
-            <strong>{{list}}</strong>
-            <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                    class="glyphicon glyphicon-th"></span>Grid</a>
-            </div>
-        </div>
-        <div id="products" class="row list-group" ng-repeat="item in items">
-            <div class="item  col-xs-4 col-lg-4">
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="static/images/281e4581-30db-446c-8443-d9a3bb1ed23b.jpeg" alt="" />
-                    <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-                            {{item.title}}</h4>
-                        <p class="group inner list-group-item-text">
-                            {{item.synopsis}}</p>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                            	<h4 class="genreTitle">Genre:</h4>
-                                <p class="lead">
-                                    {{item.genre}}</p>
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                                <a class="btn btn-success" href="{{item.trailerurl}}">See trailer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End of products-->
-    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/js/list.js"></script>
-  </body>
+<!-- Header -->
+<header class="text-center" name="home">
+  <div class="intro-text">
+    <h1 class="wow fadeInDown">We are <strong><span class="color">Presens</span></strong></h1>
+    <p class="wow fadeInDown">Real-world Recommendations</p>
+    <a href="#contact-section" class="btn btn-default btn-lg page-scroll wow fadeInUp" data-wow-delay="200ms">Try it out</a> </div>
+</header>
+
+<!-- Services Section -->
+<div id="services-section" class="text-center">
+  <div class="container">
+    <div class="section-title wow fadeInDown">
+      <h2><strong>How does it work?</strong></h2>
+      <hr>
+      <div class="clearfix"></div>
+      <p>By analyzing real-world data we show you the best recommendations for you.</p>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 service wow fadeInUp" data-wow-delay="200ms"> <i class="fa fa-clock-o"></i>
+        <h4><strong>Time</strong></h4>
+        <p>We use your time to see give you the most popular showings at that time and day of the week.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service wow fadeInUp" data-wow-delay="400ms"> <i class="fa fa-cloud"></i>
+        <h4><strong>Weather</strong></h4>
+        <p>We look at the weather of your location, to give you the perfect show or movie for a rainy or a sunny day.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service wow fadeInUp" data-wow-delay="600ms"> <i class="fa fa-bullhorn"></i>
+        <h4><strong>Twitter trending</strong></h4>
+        <p>We analyze twitter trends at your location, to make sure you don't miss out on what's hot and what everybody is talking about.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service wow fadeInUp" data-wow-delay="800ms"> <i class="fa fa-history"></i>
+        <h4><strong>Historical data</strong></h4>
+        <p>We look at what other people have been looking at during similar conditions, to make sure that our recommendations are the best for you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Try it Section -->
+<div id="contact-section" class="text-center">
+  <div class="container">
+    <div class="section-title wow fadeInDown">
+      <h2><strong>Try it out</strong></h2>
+      <hr>
+      <p></p>
+    </div>
+	<h3>Enter your location</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div id="success"></div>
+        
+      </form>
+      <a href="list.html"><button class="btn btn-default">Presens my recommendations</button></a>
+    </div>
+  </div>
+</div>
+<div id="footer">
+</div>
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script type="text/javascript" src="static/js/jquery.1.11.1.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script type="text/javascript" src="static/js/bootstrap.js"></script> 
+<script type="text/javascript" src="static/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="static/js/wow.min.js"></script> 
+<script type="text/javascript" src="static/js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="static/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="static/js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="static/js/contact_me.js"></script> 
+<script type="text/javascript" src="static/js/owl.carousel.js"></script> 
+
+<!-- Javascripts
+    ================================================== --> 
+<script type="text/javascript" src="static/js/main.js"></script>
+</body>
 </html>
