@@ -16,8 +16,8 @@
 
 
 from __future__ import print_function
-from alchemyapi import AlchemyAPI
 
+from alchemyapi import AlchemyAPI
 
 test_text = 'Bob broke my heart, and then made up this silly sentence to test the PHP SDK'
 test_html = '<html><head><title>The best SDK Test | AlchemyAPI</title></head><body><h1>Hello World!</h1><p>My favorite language is PHP</p></body></html>'

@@ -1,10 +1,11 @@
-import alchemyapi_python.alchemyapi
+import alchemyapi
+
 
 class alchemy:
 
     def __init__(self):
-        self.api_connection = alchemyapi_python.alchemyapi.AlchemyAPI()
+        self.api_connection = alchemyapi.AlchemyAPI()
 
 
     def find_keywords(self, text):
-        return self.api_connection.keywords("text", text, {'keywordExtractMode': 'strict'})
+        return self.api_connection.keywords("text", text, {'showSourceText': 0})

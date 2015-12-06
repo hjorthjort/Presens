@@ -1,5 +1,7 @@
 from flask import jsonify
-
+from twitter_trends import twitter
+import weather
+from alchemy import alchemy
 
 # Dummy data
 lists = [
@@ -60,9 +62,28 @@ lists = [
     },
 ]
 
+meta = {
+    'location': u'London, UK',
+    'weather': weather.getWeather(2882, 'London'),
+    'trends': twitter().get_trends()
+}
 
 def get_lists():
+
     return jsonify({'lists': lists})
+
+def get_trending_concepts():
+    twObject = twitter()
+    alcObject = alchemy()
+    concepts = []
+    for trend in twObject.get_trends():
+        tweets = twObject.get_tweets(trend)
+        concept = alcObject.find_keywords(". ".join(tweets))
+        concepts.append(concept)
+    return jsonify({'trend-concepts': concepts})
+
+def metadata():
+    return jsonify({'metadata': meta})
 
 def index():
     return "Hi!"
