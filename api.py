@@ -4,6 +4,8 @@ import weather
 from alchemy import alchemy
 import map_id_to_program as mapping
 import numpy as np
+from date_time import weekday, hour_of_day
+import time
 from handle_recommendations import recommendations
 
 lists = [
@@ -71,19 +73,16 @@ meta = {
 }
 
 def get_lists(recommendation):
-    datapoint = np.array([1,1,1])
+    ts = int(time.time())
+    datapoint = np.array([weekday(ts), hour_of_day(ts), 1])
+    #print datapoint
+    #datapoint = np.array([6,10,1])
     list_of_rec = recommendation.get_kmeans_recommendations(datapoint)
     return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data())})
 
-#def get_trending_concepts():
-#    twObject = twitter()
-#    alcObject = alchemy()
-#    concepts = []
-#    for trend in twObject.get_trends():
-#        tweets = twObject.get_tweets(trend)
-#        concept = alcObject.find_keywords(". ".join(tweets))
-#        concepts.append(concept)
-#    return jsonify({'trend-concepts': concepts})
+def get_trending_concepts(recommendation):
+    list_of_rec = recommendation.get_trend_recommendations()
+    return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data())})
 
 def metadata():
     return jsonify({'metadata': meta})
