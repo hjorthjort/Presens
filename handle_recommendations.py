@@ -6,7 +6,7 @@ class recommendations:
     def __init__(self):
         print "Reached init"
         preproc = preprocessing()
-        #self.trend_filter = trend_filtering()
+        self.trend_filter = trend_filtering()
         print "did stuff 1"
         self.in_data = preproc.get_data()
         print "did stuff 2"
@@ -28,5 +28,5 @@ class recommendations:
         trend_recommendation = self.get_trend_recommendations()
         return set(kmeans_recommendation).intersection(trend_filtering)
 
-    def get_meta_data():
+    def get_meta_data(self):
         return self.trend_filter.get_meta_data()

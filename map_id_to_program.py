@@ -3,9 +3,9 @@ import argparse
 import numpy as np
 import csv
 
-def programs_to_data(self, list_of_ids, meta_data):
+def programs_to_data(list_of_ids, meta_data):
     lists = []
-    iters = 10 # len(list_of_ids)
+    iters = len(list_of_ids)
     for i in range(0, iters):
         if meta_data[i][0] in list_of_ids:
             lists.append({'programid':meta_data[i][0]
