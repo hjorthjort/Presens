@@ -16,9 +16,10 @@
 
 
 from __future__ import print_function
-from alchemyapi import AlchemyAPI
+
 import json
 
+from alchemyapi import AlchemyAPI
 
 demo_text = 'Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.'
 demo_url = 'http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen'
