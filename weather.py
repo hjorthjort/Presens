@@ -1,11 +1,10 @@
-import random
+import numpy as np
 # Returns a classification of the weather based on point in time and location.
 # Resolution is hourly
 def getWeather(time, location):
     # At present this class returns randomized weather classification, for proof of concept. For a business implementation,
     # as subscription to Open Weather Map would probably be a good idea, but these are rather expensive.
-    return random.randint(2,9) * 100 + random.randint(0,3) * 10 + random.randint(0,4)
-
+    return np.random_choice(np.arange(2,10))
 
 # Classifications
 # ID	Meaning	Icon
