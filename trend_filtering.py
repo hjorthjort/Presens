@@ -8,16 +8,26 @@ class trend_filtering:
     def __init__(self):
         self.al_object = alchemy()
         self.tw_object = twitter()
+        self.meta_data = np.empty([25258,6],dtype='|S1000')
+        with open('metadata.csv', 'rb') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            i = 0
+            for row in spamreader:
+                self.meta_data[i, :] = row
+                i += 1
 
-    def prioritise_on_trends(self, metadata_list, trends_list):
+    def get_meta_data(self):
+        return self.meta_data
+
+    def prioritise_on_trends(self):
         priority_list = []
         trending_concepts = self.get_trending_concepts()
-        for i in range(0, metadata_list[:,0].size):
+        for i in range(0, self.meta_data[:,0].size):
             metadata_concepts = self.get_metadata_concepts(metadata[i,:])
             for k in range(0, len(metadata_concepts))
                 for j in range(0, len(trending_concepts)):
                     if metadata_concepts[k] == trending_concepts[j]:
-                        priority_list.append(metadata_list[i,:])
+                        priority_list.append(self.meta_data[i,:])
         return priority_list
 
     def get_metadata_concepts(self, metadata):

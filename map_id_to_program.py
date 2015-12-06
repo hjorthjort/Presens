@@ -5,14 +5,13 @@ import csv
 
 class mapping:
     def __init__(self):
-        self.meta_data = np.empty([25258,6],dtype='|S1000')
+        self.meta_data = np.empty([25258,6],dtype='str')
         with open('metadata.csv', 'rb') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',')
             i = 0
             for row in spamreader:
                 self.meta_data[i, :] = row
                 i += 1
-        print self.meta_data
 
     def programs_to_data(list_of_ids):
         lists = []
