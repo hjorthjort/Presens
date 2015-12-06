@@ -12,17 +12,17 @@ class mapping:
             for row in spamreader:
                 self.meta_data[i, :] = row
                 i += 1
-        print self.meta_data
+        print self.meta_data[0][1]
 
-    def programs_to_data(list_of_ids):
+    def programs_to_data(self, list_of_ids):
         lists = []
         for i in range(0, len(list_of_ids)):
-            if list_of_ids == self.meta_data[0][i]:
-                lists.append({'title':self.meta_data[1]
-                            , 'genre':self.meta_data[2]
-                            , 'sub-genre':self.meta_data[3]
-                            , 'tags':self.meta_data[4]
-                            , 'synopsis':self.meta_data[5]})
+            if self.meta_data[i][0] in list_of_ids:
+                lists.append({'title':self.meta_data[i][1]
+                            , 'genre':self.meta_data[i][2]
+                            , 'sub-genre':self.meta_data[i][3]
+                            , 'tags':self.meta_data[i][4]
+                            , 'synopsis':self.meta_data[i][5]})
         return lists
 
 def main():
