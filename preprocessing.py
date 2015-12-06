@@ -1,7 +1,6 @@
 from __future__ import division
 import argparse
 import numpy as np
-import matplotlib.pyplot as plt
 from weather import getWeather
 from date_time import weekday, hour_of_day
 

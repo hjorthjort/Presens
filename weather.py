@@ -4,7 +4,7 @@ import numpy as np
 def getWeather(time, location):
     # At present this class returns randomized weather classification, for proof of concept. For a business implementation,
     # as subscription to Open Weather Map would probably be a good idea, but these are rather expensive.
-    return np.random_choice(np.arange(2,10))
+    return np.random.choice(np.arange(2,10))
 
 # Classifications
 # ID	Meaning	Icon
