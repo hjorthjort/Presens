@@ -4,11 +4,16 @@ from trend_filtering import trend_filtering
 
 class recommendations:
     def __init__(self):
+        print "Reached init"
         preproc = preprocessing()
-        self.trend_filter = trend_filtering()
+        #self.trend_filter = trend_filtering()
+        print "did stuff 1"
         self.in_data = preproc.get_data()
+        print "did stuff 2"
         self.program_map = preproc.get_programs()
-        self.kmeans = kmeansclutering(in_data, program_map)
+        print "did stuff 3"
+        self.kmeans = kmeansclutering(self.in_data, self.program_map)
+        print "Done with init"
 
     def get_kmeans_recommendations(self, new_datapoint):
         recommended_program_ids = self.kmeans.get_recommendation_cluster(new_datapoint)
@@ -24,4 +29,4 @@ class recommendations:
         return set(kmeans_recommendation).intersection(trend_filtering)
 
     def get_meta_data():
-        return self.trend_filter.get_meta_data()    
+        return self.trend_filter.get_meta_data()

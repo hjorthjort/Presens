@@ -8,8 +8,8 @@ class kmeansclutering:
     def __init__(self, data_matrix, program_ids):
         self.rows = data_matrix.shape[0]
         self.cols = data_matrix.shape[1]
-        clusters = int(self.rows/1000)
-        iterations = int(self.rows/10000)
+        clusters = int(self.rows/10000)
+        iterations = int(self.rows/100000)
         self.kmeans = cluster.KMeans(n_clusters=clusters, max_iter=iterations, init='k-means++', precompute_distances='auto')
         self.program_ids = program_ids
         self.clusters = self.kmeans.fit_predict(data_matrix)

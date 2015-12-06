@@ -5,10 +5,6 @@ from alchemy import alchemy
 import map_id_to_program
 from handle_recommendations import recommendations
 
-
-# Dummy data
-programme_ids = ['2eda62d0-6d84-4552-802e-23dc569d9233', 'e69f9468-eef5-492f-8ea3-5fbe83ffcc97']
-
 lists = [
     {
         'title': u'Classical Sunday',
@@ -78,15 +74,15 @@ def get_lists(recommendation):
     list_of_rec = recommendation.get_recommendations(datapoint)
     return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data)})
 
-def get_trending_concepts():
-    twObject = twitter()
-    alcObject = alchemy()
-    concepts = []
-    for trend in twObject.get_trends():
-        tweets = twObject.get_tweets(trend)
-        concept = alcObject.find_keywords(". ".join(tweets))
-        concepts.append(concept)
-    return jsonify({'trend-concepts': concepts})
+#def get_trending_concepts():
+#    twObject = twitter()
+#    alcObject = alchemy()
+#    concepts = []
+#    for trend in twObject.get_trends():
+#        tweets = twObject.get_tweets(trend)
+#        concept = alcObject.find_keywords(". ".join(tweets))
+#        concepts.append(concept)
+#    return jsonify({'trend-concepts': concepts})
 
 def metadata():
     return jsonify({'metadata': meta})

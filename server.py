@@ -1,10 +1,11 @@
+from __future__ import print_function
 import os
 from flask import Flask, send_from_directory
 import api
 from handle_recommendations import recommendations
 
 app = Flask(__name__)
-recommendation = None
+recommendation = recommendations()
 
 @app.route('/', methods=['GET'])
 def index():
@@ -29,4 +30,3 @@ def metadata():
 port = os.getenv('VCAP_APP_PORT', '5000')
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(port))
-    recommendation = recommendations()

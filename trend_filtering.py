@@ -11,7 +11,7 @@ class trend_filtering:
         self.tw_object = twitter()
         self.meta_data = np.empty([25258,6],dtype='|S1000')
         with open('metadata.csv', 'rb') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
+            spamreader = csv.reader(csvfile, delimiter=',')
             i = 0
             for row in spamreader:
                 self.meta_data[i, :] = row
