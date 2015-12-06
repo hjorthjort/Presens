@@ -25,7 +25,7 @@ class trend_filtering:
         trending_concepts = self.get_trending_concepts()
         for i in range(0, self.meta_data[:,0].size):
             metadata_concepts = self.get_metadata_concepts(metadata[i,:])
-            for k in range(0, len(metadata_concepts))
+            for k in range(0, len(metadata_concepts)):
                 for j in range(0, len(trending_concepts)):
                     if metadata_concepts[k] == trending_concepts[j]:
                         priority_list.append(self.meta_data[i,:])

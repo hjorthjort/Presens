@@ -2,7 +2,7 @@ from flask import jsonify
 from twitter_trends import twitter
 import weather
 from alchemy import alchemy
-from map_id_to_program import mapping
+import map_id_to_program
 from handle_recommendations import recommendations
 
 
@@ -88,10 +88,8 @@ def get_trending_concepts():
         concepts.append(concept)
     return jsonify({'trend-concepts': concepts})
 
-
 def metadata():
     return jsonify({'metadata': meta})
-
 
 def index():
     return "Hi!"
