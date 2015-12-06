@@ -8,6 +8,8 @@ angular.module('recApp', [])
 			success(function(data) {
 				$scope.list = data.lists[0].title;
 				$scope.items = data.lists[0].items;
+				$scope.$apply();
+
 			})
 
 	}]);
