@@ -6,8 +6,8 @@ angular.module('recApp', [])
 
 		$http.get('http://localhost:5000/api/lists').
 			success(function(data) {
-				$scope.list = data.lists[0].title;
-				$scope.items = data.lists[0].items;
+
+				$scope.items = data.lists;
 				$scope.$apply();
 
 			})

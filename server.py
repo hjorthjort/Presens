@@ -11,12 +11,12 @@ recommendation = recommendations()
 def index_get():
     return send_from_directory('.','index.html')
 
-@app.route('/list', methods=['GET'])
-def index():
+@app.route('/list.html', methods=['GET'])
+def list_gt():
     return send_from_directory('.','list.html')
 
 @app.route('/grid.html', methods=['GET'])
-def index():
+def grid_get():
     return send_from_directory('.','grid.html')
 
 @app.route('/api/lists', methods=['GET'])
