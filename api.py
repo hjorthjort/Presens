@@ -2,8 +2,12 @@ from flask import jsonify
 from twitter_trends import twitter
 import weather
 from alchemy import alchemy
+from map_id_to_program import mapping
+
 
 # Dummy data
+programme_ids = ['2eda62d0-6d84-4552-802e-23dc569d9233', 'e69f9468-eef5-492f-8ea3-5fbe83ffcc97']
+
 lists = [
     {
         'title': u'Classical Sunday',
@@ -68,9 +72,11 @@ meta = {
     'trends': twitter().get_trends()
 }
 
-def get_lists():
 
-    return jsonify({'lists': lists})
+def get_lists():
+    mapp = mapping()
+    return jsonify({'lists': mapp.programs_to_data(programme_ids)})
+
 
 def get_trending_concepts():
     twObject = twitter()
@@ -82,8 +88,10 @@ def get_trending_concepts():
         concepts.append(concept)
     return jsonify({'trend-concepts': concepts})
 
+
 def metadata():
     return jsonify({'metadata': meta})
+
 
 def index():
     return "Hi!"
