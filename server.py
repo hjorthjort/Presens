@@ -8,8 +8,16 @@ app = Flask(__name__)
 recommendation = recommendations()
 
 @app.route('/', methods=['GET'])
-def index():
+def index_get():
     return send_from_directory('.','index.html')
+
+@app.route('/list', methods=['GET'])
+def index():
+    return send_from_directory('.','list.html')
+
+@app.route('/grid.html', methods=['GET'])
+def index():
+    return send_from_directory('.','grid.html')
 
 @app.route('/api/lists', methods=['GET'])
 def get_lists():
