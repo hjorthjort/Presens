@@ -3,6 +3,7 @@ import argparse
 import numpy as np
 from alchemy import alchemy
 from twitter_trends import twitter
+import csv
 
 class trend_filtering:
     def __init__(self):
