@@ -29,13 +29,3 @@ class twitter:
 		for result in query["statuses"]:
 			tweets.append(result["text"])
 		return tweets
-
-#def main():
-#	tweets = twitter()
-#	trends = tweets.get_trends()
-#	for i in range(0, len(trends)):
-#		listoftweets = tweets.get_tweets(trends[i])
-#		for j in range(0, len(listoftweets)):
-#			print listoftweets[j]
-#if __name__ == "__main__":
-#    main()

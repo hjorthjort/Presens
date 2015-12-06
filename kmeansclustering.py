@@ -21,21 +21,3 @@ class kmeansclutering:
             if self.clusters[i] == cluster:
                 program_id_list.append(self.program_ids[i])
         return program_id_list
-
-#def main():
-    #prep = preprocessing()
-    #data = prep.get_data()
-    #prog = prep.get_programs()
-    #kmeans = kmeansclutering(data, prog)
-    #print prog[0]
-    #print data[0]
-    #recommendations_list = kmeans.get_recommendation_cluster(data[0])
-    #print len(recommendations_list)
-    #mapping = np.loadtxt('metadata.csv', delimiter=',', dtype='str',usecols=(0, 1), skiprows=1, unpack=True)
-    #for i in range(0, len(recommendations_list)):
-    #    for j in range(0, mapping[:,0].size):
-    #        if recommendations_list[i] == mapping[j,0]:
-    #            print mapping[j,1]
-
-#if __name__ == "__main__":
-#    main()

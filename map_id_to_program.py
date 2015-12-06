@@ -1,10 +1,18 @@
 from __future__ import division
 import argparse
 import numpy as np
+import csv
 
 class mapping:
     def __init__(self):
-        self.meta_data = np.loadtxt('metadata.csv', delimiter=',', dtype='str', skiprows=1, unpack=True)
+        self.meta_data = np.empty([25258,6],dtype='|S1000')
+        with open('metadata.csv', 'rb') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=',')
+            i = 0
+            for row in spamreader:
+                self.meta_data[i, :] = row
+                i += 1
+        print self.meta_data
 
     def programs_to_data(list_of_ids):
         lists = []
@@ -16,3 +24,9 @@ class mapping:
                             , 'tags':self.meta_data[4]
                             , 'synopsis':self.meta_data[5]})
         return lists
+
+def main():
+    mapp = mapping()
+
+if __name__ == '__main__':
+   main()

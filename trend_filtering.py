@@ -29,6 +29,5 @@ class trend_filtering:
         concepts = []
         for trend in self.tw_object.get_trends():
             tweets = self.tw_object.get_tweets(trend)
-            concept = self.al_object.find_keywords(". ".join(tweets))
-            concepts.append(concept)
+            concepts.append(self.al_object.find_keywords(". ".join(tweets)))
         return concepts
