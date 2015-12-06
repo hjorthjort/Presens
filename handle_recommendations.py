@@ -28,5 +28,5 @@ class recommendations:
         trend_recommendation = self.get_trend_recommendations()
         return set(kmeans_recommendation).intersection(trend_filtering)
 
-    def get_meta_data():
+    def get_meta_data(self):
         return self.trend_filter.get_meta_data()

@@ -2,7 +2,7 @@ from flask import jsonify
 from twitter_trends import twitter
 import weather
 from alchemy import alchemy
-import map_id_to_program
+import map_id_to_program as mapping
 import numpy as np
 from handle_recommendations import recommendations
 
@@ -71,12 +71,9 @@ meta = {
 }
 
 def get_lists(recommendation):
-    print "reached get_lists method"
     datapoint = np.array([1,1,1])
-    print "created datapoint"
-    list_of_rec = recommendation.get_recommendations(datapoint)
-    print "got a list of recommendations"
-    return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data)})
+    list_of_rec = recommendation.get_kmeans_recommendations(datapoint)
+    return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data())})
 
 #def get_trending_concepts():
 #    twObject = twitter()
