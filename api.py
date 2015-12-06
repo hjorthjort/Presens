@@ -3,6 +3,7 @@ from twitter_trends import twitter
 import weather
 from alchemy import alchemy
 from map_id_to_program import mapping
+from handle_recommendations import recommendations
 
 
 # Dummy data
@@ -72,11 +73,10 @@ meta = {
     'trends': twitter().get_trends()
 }
 
-
-def get_lists():
-    mapp = mapping()
-    return jsonify({'lists': mapp.programs_to_data(programme_ids)})
-
+def get_lists(recommendation):
+    datapoint = np.array([1,1,1])
+    list_of_rec = recommendation.get_recommendations(datapoint)
+    return jsonify({'lists': mapping.programs_to_data(list_of_rec, recommendation.get_meta_data)})
 
 def get_trending_concepts():
     twObject = twitter()

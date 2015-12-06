@@ -22,3 +22,6 @@ class recommendations:
         kmeans_recommendation = self.get_kmeans_recommendations(new_datapoint)
         trend_recommendation = self.get_trend_recommendations()
         return set(kmeans_recommendation).intersection(trend_filtering)
+
+    def get_meta_data():
+        return self.trend_filter.get_meta_data()    
