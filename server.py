@@ -25,7 +25,7 @@ def get_lists():
 
 @app.route('/api/trends', methods=['GET'])
 def get_trend_concepts():
-    return api.get_trending_concepts()
+    return api.get_trending_concepts(recommendation)
 
 @app.route('/api', methods=['GET'])
 def startpage():

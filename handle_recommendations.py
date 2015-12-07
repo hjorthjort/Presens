@@ -20,7 +20,7 @@ class recommendations:
         return recommended_program_ids
 
     def get_trend_recommendations(self):
-        list_of_trending_programs = self.trend_filter.prioritise_on_trends()
+        list_of_trending_programs = self.trend_filter.get_trending_programids()
         return list_of_trending_programs
 
     def get_recommendations(self, new_datapoint):
